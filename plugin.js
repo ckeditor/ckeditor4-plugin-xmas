@@ -53,17 +53,33 @@
 				'class="cke_xmas_background_cover">' +
 				'</div>',
 			style =
-				'div.cke_xmas_card_content p.wishes {' +
+				'div.cke_xmas_wishes {' +
+					'padding: 30px;' +
+				'}' +
+				'div.cke_xmas_wishes p {' +
 					'font-family: "GreatVibes";' +
 					'font-size: 24px;' +
 					'color: white;' +
 				'}' +
-				'div.cke_xmas_card_content p.big {' +
-					'font-family: "GreatVibes";' +
+				'div.cke_xmas_wishes p.big {' +
 					'font-size: 34px;' +
-					'color: white;' +
 					'text-align: center;' +
 					'margin-top: 0px;' +
+				'}' +
+				'div.cke_xmas_signature {' +
+					'position: absolute;' +
+					'right: 22px;' +
+					'bottom: 22px;' +
+				'}' +
+				'div.cke_xmas_signature p {' +
+					'font-family:arial,helvetica,sans-serif;' +
+					'margin: 0;' +
+					'text-align: right;' +
+					'color: #1f3e6a;' +
+					'font-size: 12px;' +
+				'}' +
+				'div.cke_xmas_card a {' +
+					'pointer-events: auto;' +
 				'}',
 			cardHtml =
 				'<div tabIndex="-1" style="position:fixed;' +
@@ -86,9 +102,14 @@
 						style +
 					'</style>' ) +
 					// End if IE 10-
-					'<div class="cke_xmas_card_content" style="padding:30px;">' +
-						'<p class="wishes">On behalf of the <img src="' + path + 'images/ckeditor-logo.png"> team We wish you...</p>' +
-						'<p class="wishes big">Happy Holidays!</p>' +
+					'<div class="cke_xmas_wishes">' +
+						'<p>On behalf of the <img src="' + path + 'images/ckeditor-logo.png"> team<br>' +
+						'We wish you...</p>' +
+						'<p class="big">Happy Holidays!</p>' +
+					'</div>' +
+					'<div class="cke_xmas_signature">' +
+						'<p>CORE CKEDITOR TEAM</p>' +
+						'<p><a href="http://www.ckeditor.com" target="_blank">www.ckeditor.com</a></p>' +
 					'</div>' +
 				'</div>';
 
@@ -100,6 +121,9 @@
 		coverElement.appendTo( CKEDITOR.document.getBody() );
 		cardElement.appendTo( CKEDITOR.document.getBody() );
 
+		// On IE8 you cannot add style with @font-face because it causes crash.
+		// You have to add then separately. Moreover you cannot get style attribute
+		// using CKEDITOR.dom.element.getChild nor using CKEDITOR.document.getById.
 		if ( CKEDITOR.env.ie && CKEDITOR.env.version < 11 ) {
 			var s = CKEDITOR.document.$.createElement( 'style' );
 			s.type = 'text/css';
