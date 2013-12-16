@@ -25,7 +25,7 @@
 			command.canUndo = false;
 			command.readOnly = 1;
 
-			editor.ui.addButton && editor.ui.addButton( 'xmas', {
+			editor.ui.addButton && editor.ui.addButton( 'Xmas', {
 				label: editor.lang.xmas.title,
 				command: 'xmas',
 				toolbar: 'about',
