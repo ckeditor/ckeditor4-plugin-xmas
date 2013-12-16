@@ -31,15 +31,44 @@ CKEDITOR.replace( '<em>textarea_id</em>', {
 		<textarea cols="80" id="editor1" name="editor1" rows="10">
 			&lt;h1&gt;Apollo 11&lt;/h1&gt; &lt;p&gt;&lt;b&gt;Apollo 11&lt;/b&gt; was the spaceflight that landed the first humans, Americans &lt;a href=&quot;http://en.wikipedia.org/wiki/Neil_Armstrong&quot; title=&quot;Neil Armstrong&quot;&gt;Neil Armstrong&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Buzz_Aldrin&quot; title=&quot;Buzz Aldrin&quot;&gt;Buzz Aldrin&lt;/a&gt;, on the Moon on July 20, 1969, at 20:18 UTC. Armstrong became the first to step onto the lunar surface 6 hours later on July 21 at 02:56 UTC.&lt;/p&gt; &lt;p&gt;Armstrong spent about &lt;s&gt;three and a half&lt;/s&gt; two and a half hours outside the spacecraft, Aldrin slightly less; and together they collected 47.5 pounds (21.5&amp;nbsp;kg) of lunar material for return to Earth. A third member of the mission, &lt;a href=&quot;http://en.wikipedia.org/wiki/Michael_Collins_(astronaut)&quot; title=&quot;Michael Collins (astronaut)&quot;&gt;Michael Collins&lt;/a&gt;, piloted the &lt;a href=&quot;http://en.wikipedia.org/wiki/Apollo_Command/Service_Module&quot; title=&quot;Apollo Command/Service Module&quot;&gt;command&lt;/a&gt; spacecraft alone in lunar orbit until Armstrong and Aldrin returned to it for the trip back to Earth.&lt;/p&gt;
 		</textarea>
+		<div class="description">
+			<p>
+				Use configuration to create you own card:
+			</p>
+<pre class="samples">
+CKEDITOR.replace( '<em>textarea_id</em>', {
+	extraPlugins: 'xmas',
+	<strong>xmas_wishes: '&lt;p class="big"&gt;Ho! Ho! Ho!&lt;/p&gt;',</strong>
+	<strong>xmas_signature: 'Santa Claus',</strong>
+	<strong>xmas_link: 'en.wikipedia.org/wiki/Santa_Claus'</strong>
+} );
+</pre>
+		</div>
+		<textarea cols="80" id="editor2" name="editor1" rows="10">
+			&lt;h1&gt;Apollo 11&lt;/h1&gt; &lt;p&gt;&lt;b&gt;Apollo 11&lt;/b&gt; was the spaceflight that landed the first humans, Americans &lt;a href=&quot;http://en.wikipedia.org/wiki/Neil_Armstrong&quot; title=&quot;Neil Armstrong&quot;&gt;Neil Armstrong&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Buzz_Aldrin&quot; title=&quot;Buzz Aldrin&quot;&gt;Buzz Aldrin&lt;/a&gt;, on the Moon on July 20, 1969, at 20:18 UTC. Armstrong became the first to step onto the lunar surface 6 hours later on July 21 at 02:56 UTC.&lt;/p&gt; &lt;p&gt;Armstrong spent about &lt;s&gt;three and a half&lt;/s&gt; two and a half hours outside the spacecraft, Aldrin slightly less; and together they collected 47.5 pounds (21.5&amp;nbsp;kg) of lunar material for return to Earth. A third member of the mission, &lt;a href=&quot;http://en.wikipedia.org/wiki/Michael_Collins_(astronaut)&quot; title=&quot;Michael Collins (astronaut)&quot;&gt;Michael Collins&lt;/a&gt;, piloted the &lt;a href=&quot;http://en.wikipedia.org/wiki/Apollo_Command/Service_Module&quot; title=&quot;Apollo Command/Service Module&quot;&gt;command&lt;/a&gt; spacecraft alone in lunar orbit until Armstrong and Aldrin returned to it for the trip back to Earth.&lt;/p&gt;
+		</textarea>
 		<script>
 			CKEDITOR.replace( 'editor1', {
 				toolbar: [
 					[ 'Styles', 'Format' ],
 					[ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ],
 					[ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ],
-					[ 'About', 'Xmas' ]
+					[ 'About'], [ 'Xmas' ]
 				],
 				extraPlugins: 'xmas'
+			} );
+
+			CKEDITOR.replace( 'editor2', {
+				toolbar: [
+					[ 'Styles', 'Format' ],
+					[ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ],
+					[ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ],
+					[ 'About' ], [ 'Xmas' ]
+				],
+				extraPlugins: 'xmas',
+				xmas_wishes: '<p class="big">Ho! Ho! Ho!</p>',
+				xmas_signature: 'Santa Claus',
+				xmas_link: 'en.wikipedia.org/wiki/Santa_Claus'
 			} );
 
 		</script>

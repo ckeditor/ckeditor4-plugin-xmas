@@ -35,12 +35,18 @@
 	} );
 
 	function show( editor ) {
-		var win = CKEDITOR.document.getWindow();
-		var config = editor.config,
+		var win = CKEDITOR.document.getWindow(),
+
+			path = CKEDITOR.plugins.get( 'xmas' ).path,
+
+			config = editor.config,
 			backgroundColorStyle = config.dialog_backgroundCoverColor || 'white',
 			backgroundCoverOpacity = config.dialog_backgroundCoverOpacity,
 			baseFloatZIndex = config.baseFloatZIndex,
-			path = CKEDITOR.plugins.get( 'xmas' ).path,
+			default_wishes = editor.lang.xmas.wishes.replace( '$1', '<img src="' + path + 'images/ckeditor-logo.png" alt="CKEditor">' ),
+			xmas_wishes = config.xmas_wishes || default_wishes,
+			xmas_signature = config.xmas_signature || editor.lang.xmas.signature,
+			xmas_link = config.xmas_link || 'www.ckeditor.com',
 
 			coverHtml =
 				'<div tabIndex="-1" style="position:fixed;' +
@@ -103,17 +109,15 @@
 					'</style>' ) +
 					// End if IE 10-
 					'<div class="cke_xmas_wishes">' +
-						'<p>On behalf of the <img src="' + path + 'images/ckeditor-logo.png"> team<br>' +
-						'We wish you...</p>' +
-						'<p class="big">Happy Holidays!</p>' +
+						 xmas_wishes +
 					'</div>' +
 					'<div class="cke_xmas_signature">' +
-						'<p>CORE CKEDITOR TEAM</p>' +
-						'<p><a href="http://www.ckeditor.com" target="_blank">www.ckeditor.com</a></p>' +
+						'<p>' + xmas_signature + '</p>' +
+						'<p><a href="http://' + xmas_link + '" target="_blank">' + xmas_link + '</a></p>' +
 					'</div>' +
-				'</div>';
+				'</div>',
 
-		var coverElement = CKEDITOR.dom.element.createFromHtml( coverHtml ),
+			coverElement = CKEDITOR.dom.element.createFromHtml( coverHtml ),
 			cardElement = CKEDITOR.dom.element.createFromHtml( cardHtml );
 
 		coverElement.setOpacity( backgroundCoverOpacity != undefined ? backgroundCoverOpacity : 0.5 );
