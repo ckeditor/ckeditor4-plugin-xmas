@@ -40,6 +40,7 @@
 			backgroundColorStyle = config.dialog_backgroundCoverColor || 'white',
 			backgroundCoverOpacity = config.dialog_backgroundCoverOpacity,
 			baseFloatZIndex = config.baseFloatZIndex,
+			path = CKEDITOR.plugins.get( 'xmas' ).path,
 
 			coverHtml =
 				'<div tabIndex="-1" style="position:fixed;' +
@@ -51,6 +52,19 @@
 					'background-color: ' + backgroundColorStyle + '"' +
 				'class="cke_xmas_background_cover">' +
 				'</div>',
+			style =
+				'div.cke_xmas_card_content p.wishes {' +
+					'font-family: "GreatVibes";' +
+					'font-size: 24px;' +
+					'color: white;' +
+				'}' +
+				'div.cke_xmas_card_content p.big {' +
+					'font-family: "GreatVibes";' +
+					'font-size: 34px;' +
+					'color: white;' +
+					'text-align: center;' +
+					'margin-top: 0px;' +
+				'}',
 			cardHtml =
 				'<div tabIndex="-1" style="position:fixed;' +
 					'z-index: ' + baseFloatZIndex + 1 + ';' +
@@ -60,16 +74,44 @@
 					'width: ' + CARD_WIDTH + 'px;' +
 					'height: ' + CARD_HEIGHT + 'px;' +
 					'pointer-events: none;' +
-					'background: url(\'' + CKEDITOR.plugins.get( 'xmas' ).path + 'images/xmas-background.jpg' + '\');' +
+					'background: url(\'' + path + 'images/xmas-background.jpg' + '\');' +
 					'"' +
 				'class="cke_xmas_card">' +
-					'<div style="padding:30px;">' +
-						'<p>Merry Christmas<img src="' + CKEDITOR.plugins.get( 'xmas' ).path + 'images/ckeditor-logo.png">!</p>' +
+					( ( CKEDITOR.env.ie && CKEDITOR.env.version < 11 ) ? '' :
+					'<style type="text/css">' +
+						'@font-face {' +
+							'font-family: "GreatVibes";' +
+							'src: url("' + path +'fonts/GreatVibes-Regular.ttf");' +
+						'}' +
+						style +
+					'</style>' ) +
+					// End if IE 10-
+					'<div class="cke_xmas_card_content" style="padding:30px;">' +
+						'<p class="wishes">On behalf of the <img src="' + path + 'images/ckeditor-logo.png"> team We wish you...</p>' +
+						'<p class="wishes big">Happy Holidays!</p>' +
 					'</div>' +
 				'</div>';
 
 		var coverElement = CKEDITOR.dom.element.createFromHtml( coverHtml ),
 			cardElement = CKEDITOR.dom.element.createFromHtml( cardHtml );
+
+		coverElement.setOpacity( backgroundCoverOpacity != undefined ? backgroundCoverOpacity : 0.5 );
+
+		coverElement.appendTo( CKEDITOR.document.getBody() );
+		cardElement.appendTo( CKEDITOR.document.getBody() );
+
+		if ( CKEDITOR.env.ie && CKEDITOR.env.version < 11 ) {
+			var s = CKEDITOR.document.$.createElement( 'style' );
+			s.type = 'text/css';
+			cardElement.$.appendChild( s );
+
+			s.styleSheet.cssText =
+				'@font-face {' +
+					'font-family: \'GreatVibes\';' +
+					'src: url(\'' + path +'fonts/GreatVibes-Regular.eot\');' +
+				'}' +
+				style;
+		}
 
 		coverElement.$.onclick = function() {
 			coverElement.remove();
@@ -86,12 +128,6 @@
 				top: getTopHeight() + 'px'
 			} );
 		} );
-
-
-		coverElement.setOpacity( backgroundCoverOpacity != undefined ? backgroundCoverOpacity : 0.5 );
-
-		coverElement.appendTo( CKEDITOR.document.getBody() );
-		cardElement.appendTo( CKEDITOR.document.getBody() );
 
 		// Makes the dialog cover a focus holder as well.
 		editor.focusManager.add( coverElement );
