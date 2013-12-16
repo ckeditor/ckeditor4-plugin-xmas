@@ -31,8 +31,6 @@
 				toolbar: 'about',
 				icon: 'xmas'
 			} );
-
-			CKEDITOR.dialog.add( 'xmas', this.path + 'dialogs/xmas.js' );
 		}
 	} );
 
