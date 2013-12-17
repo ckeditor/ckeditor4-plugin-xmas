@@ -117,7 +117,7 @@
 					'</style>' ) +
 					// End if IE 10-
 					'<div class="cke_xmas_wishes">' +
-						 xmas_wishes +
+						xmas_wishes +
 					'</div>' +
 					'<div class="cke_xmas_signature">' +
 						'<p>' + xmas_signature + '</p>' +
