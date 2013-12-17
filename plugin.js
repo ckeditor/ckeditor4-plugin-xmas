@@ -6,8 +6,8 @@
 
 ( function() {
 
-	var CARD_HEIGHT = 404,
-		CARD_WIDTH = 316;
+	var CARD_HEIGHT = 409,
+		CARD_WIDTH = 315;
 
 	CKEDITOR.plugins.add( 'xmas', {
 		requires: 'dialog',
@@ -81,6 +81,15 @@
 					'text-align: right;' +
 					'color: #1f3e6a;' +
 					'font-size: 12px;' +
+				'}' +
+				'div.cke_xmas_card {' +
+					'transform: rotate(-10deg);' +
+					'-ms-transform: rotate(-10deg);' +
+					'-webkit-transform: rotate(-10deg);' +
+					'-webkit-box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);' +
+					'-moz-box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);' +
+					'box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);' +
+					'border: 2px solid #a3a3a3;'+
 				'}' +
 				'div.cke_xmas_card a {' +
 					'pointer-events: auto;' +
