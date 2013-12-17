@@ -63,7 +63,7 @@
 					'padding: 30px;' +
 				'}' +
 				'div.cke_xmas_wishes p {' +
-					'font-family: "GreatVibes";' +
+					'font-family: "GreatVibes",Cursive;' +
 					'font-size: 24px;' +
 					'color: white;' +
 				'}' +
