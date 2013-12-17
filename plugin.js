@@ -90,6 +90,7 @@
 					'-moz-box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);' +
 					'box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);' +
 					'border: 2px solid #a3a3a3;'+
+					'outline: none;' +
 				'}' +
 				'div.cke_xmas_card a {' +
 					'pointer-events: auto;' +
@@ -120,17 +121,20 @@
 					'</div>' +
 					'<div class="cke_xmas_signature">' +
 						'<p>' + xmas_signature + '</p>' +
-						'<p><a href="http://' + xmas_link + '" target="_blank">' + xmas_link + '</a></p>' +
+						'<p><a id="cke_xmas_link" href="http://' + xmas_link + '" target="_blank">' + xmas_link + '</a></p>' +
 					'</div>' +
 				'</div>',
 
 			coverElement = CKEDITOR.dom.element.createFromHtml( coverHtml ),
-			cardElement = CKEDITOR.dom.element.createFromHtml( cardHtml );
+			cardElement = CKEDITOR.dom.element.createFromHtml( cardHtml ),
+			linkElement;
 
 		coverElement.setOpacity( backgroundCoverOpacity != undefined ? backgroundCoverOpacity : 0.5 );
 
 		coverElement.appendTo( body );
 		cardElement.appendTo( body );
+
+		linkElement = CKEDITOR.document.getById( 'cke_xmas_link' );
 
 		// On IE8 you cannot add style with @font-face because it causes crash.
 		// You have to add them separately. Moreover you cannot get style attribute
@@ -170,6 +174,9 @@
 			cardElement.setStyles( {
 				top: getTopHeight() + 'px'
 			} );
+		} );
+		listen( linkElement, 'click', function( e ) {
+			e.data.stopPropagation();
 		} );
 
 		// Makes the dialog cover a focus holder as well.
