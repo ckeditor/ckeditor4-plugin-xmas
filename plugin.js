@@ -83,12 +83,8 @@
 					'font-size: 12px;' +
 				'}' +
 				'div.cke_xmas_card {' +
-					'transform: rotate(-5deg);' +
-					'-ms-transform: rotate(-5deg);' +
-					'-webkit-transform: rotate(-5deg);' +
-					'-webkit-box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);' +
-					'-moz-box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);' +
-					'box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);' +
+					CKEDITOR.tools.cssVendorPrefix( 'transform', 'rotate(-5deg)', true ) + ';' +
+					CKEDITOR.tools.cssVendorPrefix( 'box-shadow', '10px 10px 45px -2px rgba(0,0,0,0.75)', true ) + ';' +
 					'border: 15px solid #fff;' +
 					'outline: none;' +
 				'}' +
