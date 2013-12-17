@@ -89,7 +89,7 @@
 					'-webkit-box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);' +
 					'-moz-box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);' +
 					'box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);' +
-					'border: 2px solid #a3a3a3;'+
+					'border: 15px solid #fff;' +
 					'outline: none;' +
 				'}' +
 				'div.cke_xmas_card a {' +
