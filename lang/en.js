@@ -4,8 +4,8 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'xmas', 'en', {
 	title: 'Xmas',
-	signature: 'CORE CKEDITOR TEAM',
-	wishes: '<p>On behalf of the $1 team<br>' +
+	signature: 'THE CKEDITOR TEAM',
+	wishes: '<p>On behalf of the $1team<br>' +
 			'We wish you...</p>' +
 			'<p class="big">Happy Holidays!</p>'
 } );

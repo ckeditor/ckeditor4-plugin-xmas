@@ -44,7 +44,7 @@
 			default_wishes = editor.lang.xmas.wishes.replace( '$1', '<img src="' + path + 'images/ckeditor-logo.png" alt="CKEditor">' ),
 			xmas_wishes = config.xmas_wishes || default_wishes,
 			xmas_signature = config.xmas_signature || editor.lang.xmas.signature,
-			xmas_link = config.xmas_link || 'www.ckeditor.com',
+			xmas_link = config.xmas_link || 'ckeditor.com',
 
 			coverHtml =
 				'<div tabIndex="-1" style="position:fixed;' +
