@@ -15,13 +15,12 @@
 		hidpi: true, // %REMOVE_LINE_CORE%
 		lang: 'en', // %REMOVE_LINE_CORE%
 		init: function( editor ) {
-			var command = editor.addCommand( 'xmas', new CKEDITOR.command( editor, {
-				exec: show
-			} ) );
-
-			command.modes = { wysiwyg: 1, source: 1 };
-			command.canUndo = false;
-			command.readOnly = 1;
+			var command = editor.addCommand( 'xmas', {
+				exec: show,
+				modes: { wysiwyg: 1, source: 1 },
+				canUndo: false,
+				readOnly: 1
+			} );
 
 			editor.ui.addButton && editor.ui.addButton( 'Xmas', {
 				label: editor.lang.xmas.title,
