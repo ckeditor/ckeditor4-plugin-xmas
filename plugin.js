@@ -144,12 +144,12 @@
 		coverElement.$.onclick = function() {
 			coverElement.remove();
 			cardElement.remove();
-		}
+		};
 
 		cardElement.$.onclick = function() {
 			coverElement.remove();
 			cardElement.remove();
-		}
+		};
 
 		win.on( 'resize', function() {
 			cardElement.setStyles( {
