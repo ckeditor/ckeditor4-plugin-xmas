@@ -33,6 +33,7 @@
 
 	function show( editor ) {
 		var win = CKEDITOR.document.getWindow(),
+			body = CKEDITOR.document.getBody(),
 
 			path = CKEDITOR.plugins.get( 'xmas' ).path,
 
@@ -119,8 +120,8 @@
 
 		coverElement.setOpacity( backgroundCoverOpacity != undefined ? backgroundCoverOpacity : 0.5 );
 
-		coverElement.appendTo( CKEDITOR.document.getBody() );
-		cardElement.appendTo( CKEDITOR.document.getBody() );
+		coverElement.appendTo( body );
+		cardElement.appendTo( body );
 
 		// On IE8 you cannot add style with @font-face because it causes crash.
 		// You have to add then separately. Moreover you cannot get style attribute
