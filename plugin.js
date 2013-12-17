@@ -13,7 +13,7 @@
 		requires: 'dialog',
 		icons: 'xmas', // %REMOVE_LINE_CORE%
 		hidpi: true, // %REMOVE_LINE_CORE%
-		lang: 'en', // %REMOVE_LINE_CORE%
+		lang: 'en,fr,pl,it,pt,es,da', // %REMOVE_LINE_CORE%
 		init: function( editor ) {
 			var command = editor.addCommand( 'xmas', {
 				exec: show,
