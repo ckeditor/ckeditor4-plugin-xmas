@@ -16,9 +16,7 @@
 		lang: 'en', // %REMOVE_LINE_CORE%
 		init: function( editor ) {
 			var command = editor.addCommand( 'xmas', new CKEDITOR.command( editor, {
-				exec: function( editor ) {
-					show( editor );
-			    }
+				exec: show
 			} ) );
 
 			command.modes = { wysiwyg: 1, source: 1 };
