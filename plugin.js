@@ -139,16 +139,25 @@
 				style;
 		}
 
+		var listeners = [];
+
+		function listen( element, event, callback ) {
+			listeners.push( element.on( event, callback ) );
+		}
+
 		function remove() {
 			coverElement.remove();
 			cardElement.remove();
+
+			var l;
+			while ( ( l = listeners.pop() ) )
+				l.removeListener();
 		}
 
-		coverElement.$.onclick = remove;
-		cardElement.$.onclick = remove;
-		editor.on( 'destroy', remove );
-
-		win.on( 'resize', function() {
+		listen( coverElement, 'click', remove );
+		listen( cardElement, 'click', remove );
+		listen( editor, 'destroy', remove );
+		listen( win, 'resize', function() {
 			cardElement.setStyles( {
 				top: getTopHeight() + 'px'
 			} );
