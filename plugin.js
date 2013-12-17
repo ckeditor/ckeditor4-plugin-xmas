@@ -124,7 +124,7 @@
 		cardElement.appendTo( body );
 
 		// On IE8 you cannot add style with @font-face because it causes crash.
-		// You have to add then separately. Moreover you cannot get style attribute
+		// You have to add them separately. Moreover you cannot get style attribute
 		// using CKEDITOR.dom.element.getChild nor using CKEDITOR.document.getById.
 		if ( CKEDITOR.env.ie && CKEDITOR.env.version < 11 ) {
 			var s = CKEDITOR.document.$.createElement( 'style' );
