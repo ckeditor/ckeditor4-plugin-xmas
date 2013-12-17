@@ -175,12 +175,19 @@
 				top: getTopHeight() + 'px'
 			} );
 		} );
-		listen( linkElement, 'click', function( e ) {
-			e.data.stopPropagation();
+		listen( linkElement, 'click', function( evt ) {
+			evt.data.stopPropagation();
+		} );
+		listen( win, 'keydown', function( evt ) {
+			if ( evt.data.getKey() == 27 /*Esc*/ )
+				remove();
 		} );
 
-		// Makes the dialog cover a focus holder as well.
+		// Makes the cover and card a focus holder as well.
 		editor.focusManager.add( coverElement );
+		editor.focusManager.add( cardElement );
+
+		cardElement.focus();
 	}
 
 	function getTopHeight() {
