@@ -37,7 +37,7 @@
 			path = CKEDITOR.plugins.get( 'xmas' ).path,
 
 			config = editor.config,
-			backgroundColorStyle = config.dialog_backgroundCoverColor || 'white',
+			backgroundColorStyle = config.dialog_backgroundCoverColor || '#fff',
 			backgroundCoverOpacity = config.dialog_backgroundCoverOpacity,
 			baseFloatZIndex = config.baseFloatZIndex,
 			default_wishes = editor.lang.xmas.wishes.replace( '$1', '<img src="' + path + 'images/ckeditor-logo.png" alt="CKEditor">' ),
