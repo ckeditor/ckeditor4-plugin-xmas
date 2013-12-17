@@ -141,15 +141,14 @@
 				style;
 		}
 
-		coverElement.$.onclick = function() {
+		function remove() {
 			coverElement.remove();
 			cardElement.remove();
-		};
+		}
 
-		cardElement.$.onclick = function() {
-			coverElement.remove();
-			cardElement.remove();
-		};
+		coverElement.$.onclick = remove;
+		cardElement.$.onclick = remove;
+		editor.on( 'destroy', remove );
 
 		win.on( 'resize', function() {
 			cardElement.setStyles( {
