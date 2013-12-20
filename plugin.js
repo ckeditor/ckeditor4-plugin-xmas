@@ -62,6 +62,8 @@
 				'}' +
 				'div.cke_xmas_wishes p {' +
 					'font-family: "GreatVibes",Cursive;' +
+					'-webkit-font-smoothing: antialiased;' +
+					'-moz-osx-font-smoothing: grayscale;' +
 					'font-size: 24px;' +
 					'color: white;' +
 				'}' +
